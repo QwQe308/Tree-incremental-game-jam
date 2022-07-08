@@ -485,7 +485,7 @@ addLayer("r", { //这是代码中的节点代码 例如player.p可以调用该�
             requires(x = player.r[this.id].add(1)){
                 return x.pow(1.33).mul(25).add(25)
             },
-            unlocked:true,
+            unlocked(){return g().metalUnl},
             canClick:true,
             effect1(x = r()[this.id]){
                 x = x.add(2).div(3).floor().mul(5)
@@ -503,7 +503,7 @@ addLayer("r", { //这是代码中的节点代码 例如player.p可以调用该�
                 return `
                 研究进度:${format(r()[this.id])}/${format(this.requires())}<br>
                 效果列表:<br>
-                ${getResTooltip(this.id,["预制造条增加","制造速度*","储存上限+"])}
+                ${getResTooltip(this.id,["预制造条(见滑条)增加","制造速度*","储存上限+"])}
                 `
             },
         },
