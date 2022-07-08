@@ -1,7 +1,6 @@
-let modInfo = {
+﻿let modInfo = {
 	name: "Tigj参赛树4号",
 	id: "Tigj-4",
-	//author: "",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -14,11 +13,12 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.1",
-	name: "",
+	name: "10进度条",
 }
 
 let changelog = `<h1>更新日志:</h1><br>
-	<h3>v0.0</h3><br>
+	<h3>v0.1</h3><br>
+	<li>10进度条
 `
 
 let winText = `你已经到达了目前的残局!等我更新!`

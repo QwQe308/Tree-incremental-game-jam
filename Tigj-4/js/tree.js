@@ -367,22 +367,22 @@ addLayer("tree-tab", {
 		},
 	},
 	microtabs:{
-        "介绍-子":{
-			"进度条":{
+        "main-tab3-tab":{
+			"main-tab3-tab1":{
 				content:[
-					["microtabs","进度条-子",{'border-width':'0px'}],
+					["microtabs","main-tab3-tab1-tab",{'border-width':'0px'}],
 				]
 			},
-			"公式":{
+			"main-tab3-tab2":{
 				unlocked(){return player.data.explore_level.gte(2)},
 				content:[
-					["microtabs","公式-子",{'border-width':'0px'}],
+					["microtabs","main-tab3-tab2-tab",{'border-width':'0px'}],
 				]
 			},
-			"佣人":{
+			"main-tab3-tab3":{
 				unlocked(){return player.data.explore_level.gte(3)},
 				content:[
-					["microtabs","佣人-子",{'border-width':'0px'}],
+					["microtabs","main-tab3-tab3-tab",{'border-width':'0px'}],
 				]
 			},
 			/*
@@ -397,13 +397,13 @@ addLayer("tree-tab", {
 			},
 			*/
 		},
-		"进度条-子":{
-			"残局":{
+		"main-tab3-tab1-tab":{
+			"main-tab3-tab1-tab1":{
 				content:[
 					["display-text", function() {return '残局:所有包括残局在内的解锁的进度条的数量为残局的进度,进度满时游戏残局,残局不会参与任何非残局的运算'}],
 				]
 			},
-			"解锁":{
+			"main-tab3-tab1-tab2":{
 				content:[
 					["display-text", function() {return '解锁:当解锁进度条满后自身价格提升并解锁一个新的进度条和一些动作,解锁进度条的增长是除了解锁进度条外的所有已解锁的进度条上限之和'}],
 					["display-text", function() {return player.data.unlock_level.gte(1) ? '生命(解锁1):没什么特殊的,值得一提的是在战斗中生命为0时并不会死亡,而是直接退出战斗' : ''}],
@@ -413,7 +413,7 @@ addLayer("tree-tab", {
 					["display-text", function() {return player.data.unlock_level.gte(5) ? '恐吓(解锁5):每1恐吓都会使地方攻击每秒-1,最低为敌方攻击上限的10%' : ''}],
 				]
 			},
-			"探索":{
+			"main-tab3-tab1-tab3":{
 				unlocked(){return player.data.unlock_level.gte(3)},
 				content:[
 					["display-text", function() {return '探索(解锁4):当探索进度条满后自身价格提升并解锁一个新的进度条和战斗地点,解锁探索时同时也会出现战斗页面'}],
@@ -422,37 +422,37 @@ addLayer("tree-tab", {
 					["display-text", function() {return player.data.explore_level.gte(3) ? '声望(探索3):当声望进度条满后自身价格提升并解锁一个新的进度条和一些商店购买物以及一位新的人,解锁声望时同时会解锁佣人页面' : ''}],
 				]
 			},
-			"声望":{
+			"main-tab3-tab1-tab4":{
 				unlocked(){return player.data.explore_level.gte(3)},
 				content:[
 					["display-text", function() {return '声望(探索3):当声望进度条满后自身价格提升并解锁一个新的进度条和一些商店购买物已经一位新的人,解锁声望时同时会解锁佣人页面'}],
 				]
 			},
 		},
-		"公式-子":{
-			"解锁":{
+		"main-tab3-tab2-tab":{
+			"main-tab3-tab2-tab1":{
 				content:[
 					["display-text", function() {return '解锁基础公式:10<sup>解锁等级'}],
 					["display-text", function() {return `锁公式加成:基础/(1.0002<sup>锁数量</sup>):10 -> ${format(Decimal.add(10).div(Decimal.add(1.0002).pow(player.data.lock)),3)}`}],
 				]
 			},
-			"探索":{
+			"main-tab3-tab2-tab2":{
 				content:[
-					["display-text", function() {return '解锁探索公式:!(5+探索等级)'}],
+					["display-text", function() {return '探索基础公式:!(5+探索等级)'}],
 				]
 			},
-			"声望":{
+			"main-tab3-tab2-tab3":{
 				unlocked(){return player.data.explore_level.gte(3)},
 				content:[
-					["display-text", function() {return '解锁探索公式:10x声望等级<sup>2'}],
+					["display-text", function() {return '声望基础公式:10x声望等级<sup>2'}],
 				]
 			},
 		},
-		"佣人-子":{
+		"main-tab3-tab3-tab":{
 		},
 	},
 	tabFormat: {
-		"进度条":{
+		"main-tab1":{
 			content:[
 				['bar','endbar'],
 				['bar','unlockbar'],
@@ -469,7 +469,7 @@ addLayer("tree-tab", {
 				['bar','deatkbar'],
 			],
 		},
-		"行动":{
+		"main-tab2":{
 			unlocked(){return player.data.fight.eq(0)},
 			content:[
 				["column", [
@@ -486,7 +486,7 @@ addLayer("tree-tab", {
 				]],
 			],
 		},
-		"战斗":{
+		"main-tab4":{
 			unlocked(){return player.data.unlock_level.gte(3)},
 			content:[
 				["display-text", function() {return '战斗中无法进行任何行动,你可以随时退出战斗<br><br>'}],
@@ -500,7 +500,7 @@ addLayer("tree-tab", {
 				['bar','deatkbar'],
 			],
 		},
-		"商店":{
+		"main-tab5":{
 			unlocked(){return player.data.explore_level.gte(1)},
 			content:[
 				["display-text", function() {return '升级<hr><br>'}],
@@ -508,14 +508,14 @@ addLayer("tree-tab", {
 				["row", [['upgrade',21],['upgrade',22],['upgrade',23]]],
 			],
 		},
-		"佣人":{
+		"main-tab6":{
 			unlocked(){return player.data.explore_level.gte(3)},
 			content:[
 			],
 		},
-		"介绍":{
+		"main-tab3":{
 			content:[
-				["microtabs","介绍-子",{'border-width':'0px'}],
+				["microtabs","main-tab3-tab",{'border-width':'0px'}],
 			],
 		},
 	},

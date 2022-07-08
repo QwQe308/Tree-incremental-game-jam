@@ -74,7 +74,7 @@ addLayer("data", {
 				if(player.data.fight.eq(3)){
 					player.data.explore = player.data.explore.add(320)
 					player.data.money = player.data.money.add(40).min(player.data.moneymax)
-					player.data.lock = player.data.lock.add(25).min(player.data.moneymax)
+					player.data.lock = player.data.lock.add(25).min(player.data.lockmax)
 				}
 			}
 			if(player.data.hp.lte(0)){
