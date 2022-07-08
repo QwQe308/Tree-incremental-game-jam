@@ -12,14 +12,13 @@ var nine = new OmegaNum(9)
 var ten = new OmegaNum(10)
 //快捷定义
 function n(num){
-    return new ExpantaNum(num)
+    return new OmegaNum(num)
 }
 //检测旁边的升级是否被购买
 function checkAroundUpg(UPGlayer,place){
-    place = Number(place)
     return hasUpgrade(UPGlayer,place-1)||hasUpgrade(UPGlayer,place+1)||hasUpgrade(UPGlayer,place-10)||hasUpgrade(UPGlayer,place+10)
 }
-//对数软上限 *尽量少用,不稳定
+//对数软上限
 function logsoftcap(num,start,power){
     if(num.gt(start)){
         num = ten.tetr(num.slog(10).sub(power)).pow(start.logBase(ten.tetr(start.slog(10).sub(power))))
@@ -47,9 +46,8 @@ function showBulkBuy(item,cost,level,costmult){
 function expRoot(num,root){
     return ten.pow(num.log10().root(root))
 }
-//e后数字乘方
 function expPow(num,pow){
-    return ten.pow(num.log10().root(pow))
+    return ten.pow(num.log10().pow(pow))
 }
 //e后数字指数软上限
 function expRootSoftcap(num,start,power){
@@ -63,4 +61,17 @@ function setClass(id,toClass = []){
     for(i in toClass) classes += " "+toClass[i]
     if(classes != "") classes = classes.substr(1)
     document.getElementById(id).className = classes
+}
+//便捷
+function hasUpgThenMul(UPGlayer,id,num){
+    if(hasUpgrade(UPGlayer,id)) return num.mul(upgradeEffect(UPGlayer,id))
+    return num
+}
+function hasUpgThenPow(UPGlayer,id,num){
+    if(hasUpgrade(UPGlayer,id)) return num.pow(upgradeEffect(UPGlayer,id))
+    return num
+}
+function hasUpgThenAdd(UPGlayer,id,num){
+    if(hasUpgrade(UPGlayer,id)) return num.add(upgradeEffect(UPGlayer,id))
+    return num
 }
