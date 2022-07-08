@@ -1,7 +1,7 @@
 ﻿let modInfo = {
 	name: "Tigj参赛树1号",
 	id: "Tigj-1",
-		pointsName: "%",
+	pointsName: "%",
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new ExpantaNum (0), // Used for hard resets and new players

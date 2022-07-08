@@ -558,7 +558,7 @@ addLayer("c", {
             done() {
                 let x=zero
                 x=x.add(player.c.upgrades.length)
-                return x.gte(2)},
+                return x.gte(3)},
         },
     },
     challenges: {
@@ -568,6 +568,7 @@ addLayer("c", {
             goalDescription:`本模式下,你可以获得尽可能多的词缀`,
             rewardDescription:"无",
             completionLimit:1,
+            unlocked(){return hasMilestone("c",2)},
             canComplete: function() {
                 return true
             },
